@@ -1,11 +1,18 @@
 # module-searchmodified
 This Module is use to search string and find modified files.
 
+## Version
+We are adding a new version management to make module installation available through composer, so this is the table for reference: 
+
+Magento Version | Composer prefix 
+----            | ---- 
+2.x.x           | 100.x.x
+
 ## ✓ Install via composer (recommend)
 Run the following command in Magento 2 root folder:
 
 ```
-composer require ashish-wagento/module-searchmodified
+composer require ashish-wagento/module-searchmodified::100.0.0
 php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy
 ```
