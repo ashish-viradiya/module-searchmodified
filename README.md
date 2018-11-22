@@ -12,7 +12,7 @@ Magento Version | Composer prefix
 Run the following command in Magento 2 root folder:
 
 ```
-composer require ashish-wagento/module-searchmodified::100.0.0
+composer require ashish-wagento/module-searchmodified::100.0.1
 php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy
 ```
