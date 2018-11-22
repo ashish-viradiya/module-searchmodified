@@ -35,12 +35,12 @@ class Modified extends \Symfony\Component\Console\Command\Command
     protected function configure()
     {
         $this->setName('wagento:modified')
-            ->setDescription('Search Modified Files');
+        ->setDescription('Search Modified Files');
         $this->addOption( 'days', 'days', InputOption::VALUE_REQUIRED, 'Number Of Days', null)
-           ->addOption( 'dir', 'dir', InputOption::VALUE_REQUIRED, 'Directory path e.g. app/code/local', null)
-           ->addOption( 'ext', 'ext', InputOption::VALUE_REQUIRED, 
+        ->addOption( 'dir', 'dir', InputOption::VALUE_REQUIRED, 'Directory path e.g. app/code/local', null)
+        ->addOption( 'ext', 'ext', InputOption::VALUE_REQUIRED, 
             'File extensions, Enter file extensions. e.g. php / For multiple file types e.g. php,phtml', null);
-       return parent::configure();
+        return parent::configure();
     }
     /**
      * {@inheritdoc}
@@ -52,8 +52,12 @@ class Modified extends \Symfony\Component\Console\Command\Command
         $extensions = $input->getOption('ext');
         $result = $this->helper->searchModified($days, $directory, $extensions);
         $output->write("\n");
-        foreach ($result as $key => $value) {
-            $output->writeln($value);
+        if (!empty($result)) {
+            foreach ($result as $key => $value) {
+                $output->writeln($value);
+            }
+        } else{
+            $output->writeln('No result found.');
         }
         return 0;
     }

@@ -42,8 +42,12 @@ class Search extends \Symfony\Component\Console\Command\Command
         $extensions = $input->getOption('ext');
         $result = $this->helper->searchContent($string, $directory, $extensions);
         $output->write("\n");
-        foreach ($result as $key => $value) {
-            $output->writeln($value);
+        if (!empty($result)) {
+            foreach ($result as $key => $value) {
+                $output->writeln($value);
+            }
+        } else{
+            $output->writeln('No result found.');
         }
         return 0;
     }
